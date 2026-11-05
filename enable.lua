@@ -1,4 +1,4 @@
-﻿--[[
+--[[
     enable.lua
     Auto-activates SellerHelper features when running standalone (no BigFoot).
     When BigFoot is present it already controls these switches, so we do

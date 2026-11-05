@@ -1,7 +1,8 @@
 <Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
 ..\FrameXML\UI.xsd">
-	<Script file="SellerHelper.lua"/>
-	<Script file="AutoRecharge.lua"/>
+	<!-- WoW Forever: SellerHelper.lua / AutoRecharge.lua are loaded from the TOC
+	     before this file, so the OnLoad handlers below can always resolve their
+	     globals. Do not add <Script file=.../> back here. -->
 
 	<GameTooltip name="SellerHelperTooltip" parent="UIParent" frameStrata="TOOLTIP" inherits="GameTooltipTemplate">
 		<Scripts>
@@ -545,16 +546,16 @@
 		</Scripts>
 	</ScrollFrame>
 	<!-- 标签模板 -->
-	<Button name="SellerHelperTabTemplate" inherits="CharacterFrameTabButtonTemplate" virtual="true">
+	<Button name="SellerHelperTabTemplate" inherits="PanelTabButtonTemplate" virtual="true">
 		<Scripts>
 			<OnLoad>
 				self:SetFrameLevel(self:GetFrameLevel() + 4);
 			</OnLoad>
 			<OnClick>
-				SellerHelperParentFrameTab_OnClick(self, button);
+				if SellerHelperParentFrameTab_OnClick then SellerHelperParentFrameTab_OnClick(self, button) end
 			</OnClick>
 			<OnShow>
-				PanelTemplates_TabResize(self, 0);
+				if PanelTemplates_TabResize then PanelTemplates_TabResize(self, 0) end
 			</OnShow>
 		</Scripts>
 	</Button>
@@ -782,10 +783,10 @@
 				</Frames>
 				<Scripts>
 					<OnShow>
-						SellerHelperFrame_OnShow();
+						if SellerHelperFrame_OnShow then SellerHelperFrame_OnShow() end
 					</OnShow>
 					<OnLoad>
-						SellerHelperFrame_OnLoad(self);
+						if SellerHelperFrame_OnLoad then SellerHelperFrame_OnLoad(self) end
 					</OnLoad>
 				</Scripts>
 			</Frame>
@@ -853,7 +854,7 @@
 		<Scripts>
 			<OnLoad>
 				self:SetFrameLevel(self:GetFrameLevel() + 1);
-				SellerHelperParentFrame_OnLoad(self);
+				if SellerHelperParentFrame_OnLoad then SellerHelperParentFrame_OnLoad(self) end
 			</OnLoad>
 		</Scripts>
 	</Frame>
@@ -1021,7 +1022,7 @@
 				</Frames>
 				<Scripts>
 					<OnShow>
-						NotSellerHelperFrame_OnShow();
+						if NotSellerHelperFrame_OnShow then NotSellerHelperFrame_OnShow() end
 					</OnShow>
 					<OnLoad>
 						SellerHelperSetFrameSetFrame_OnLoad(self);

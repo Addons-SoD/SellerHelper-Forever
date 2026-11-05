@@ -1,4 +1,4 @@
-﻿## Interface: 16001
+## Interface: 16001
 ## Title: SellerHelper
 ## Title-zhCN: 售卖助手
 ## Title-zhTW: 售賣助手
@@ -14,7 +14,13 @@
 # --- BigFoot compatibility shims (must load first) ---
 BigFootShim.lua
 
-# --- Original modules ---
+# --- Modules (loaded from the TOC, not from XML: the 1.60 client does not
+#     reliably run <Script file="..."/> before the XML OnLoad handlers, which
+#     made every *_OnLoad call hit a not-yet-defined global) ---
+SellerHelper.lua
+AutoRecharge.lua
+
+# --- UI (created after the Lua modules defined their globals) ---
 SellerHelperFrame.xml
 
 # --- Standalone auto-enable & slash commands ---
