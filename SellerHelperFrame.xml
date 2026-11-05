@@ -196,7 +196,7 @@
 						self:RegisterForClicks("LeftButtonUp" ,"RightButtonUp");
 					</OnLoad>
 					<OnClick>
-						MerchantSpinBox_OnClick(self);
+						AR_SpinBox_OnClick(self);
 					</OnClick>
 				</Scripts>
 				<NormalTexture file="Interface\Buttons\UI-SpellbookIcon-PrevPage-Up"/>
@@ -221,7 +221,7 @@
 						self:RegisterForClicks("LeftButtonUp" ,"RightButtonUp");
 					</OnLoad>
 					<OnClick>
-						MerchantSpinBox_OnClick(self,true);
+						AR_SpinBox_OnClick(self,true);
 					</OnClick>
 				</Scripts>
 				<NormalTexture file="Interface\Buttons\UI-SpellbookIcon-NextPage-Up"/>
@@ -254,7 +254,7 @@
 		</Frames>
 		<Scripts>
 			<OnShow>
-				MerchantSpinBox_OnShow(self);
+				AR_SpinBox_OnShow(self);
 			</OnShow>
 		</Scripts>
 	</Frame>

@@ -137,7 +137,9 @@ local function IsAddonLoaded(name)
     if C_AddOns and C_AddOns.IsAddOnLoaded then
         return C_AddOns.IsAddOnLoaded(name)
     end
-    return IsAddOnLoaded(name)
+    local legacy = _G.IsAddOnLoaded -- WoW Forever: Mainline replaced this global with C_AddOns.IsAddOnLoaded; keep a nil-safe fallback.
+    if legacy then return legacy(name) end
+    return false
 end
 
 local f = CreateFrame("Frame")

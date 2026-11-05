@@ -1,8 +1,10 @@
-﻿# SellerHelper
+# SellerHelper
 
-A World of Warcraft (Classic Era) addon that provides a convenient trading assistant for selling items and auto-purchasing supplies from merchants.
+A World of Warcraft addon that provides a convenient trading assistant for selling items and auto-purchasing supplies from merchants.
 
 Originally extracted and cleaned up from the BigFoot addon suite's `SellerHelper` module, this standalone version removes all BigFoot dependencies while preserving the full original feature set.
+
+> **`wow-forever` branch**: ported to *World of Warcraft: Forever* (client `_forever_`, product code `wowf`, 1.60.1, `## Interface: 16001`). Removed Classic-only globals are restored by compatibility shims in `BigFootShim.lua` on top of `C_Item`, `C_Container`, `C_MerchantFrame` and `C_AddOns`; gameplay logic is unchanged.
 
 ## Features
 
@@ -43,13 +45,14 @@ Originally extracted and cleaned up from the BigFoot addon suite's `SellerHelper
 1. Download or clone this repository.
 2. Copy the entire `SellerHelper-SoD` folder into your WoW addon directory (rename to `SellerHelper` if desired):
    ```
-   World of Warcraft\_classic_era_\Interface\AddOns\SellerHelper\
+   World of Warcraft\_forever_\Interface\AddOns\SellerHelper\
    ```
 3. Enable **SellerHelper** in the in-game AddOns list at the character select screen.
 
 ## Compatibility
 
-- **Interface**: 11508, 11509 (Classic Era / Season of Discovery)
+- **Interface**: 16001 (WoW Forever 1.60.1)
+- **Client**: `_forever_` (product code `wowf`), modern Mainline API (12.1.5), Lua 5.1
 - **Dependencies**: None
 
 ## Architecture
@@ -57,7 +60,7 @@ Originally extracted and cleaned up from the BigFoot addon suite's `SellerHelper
 | File | Purpose |
 |---|---|
 | `SellerHelper.toc` | Addon manifest |
-| `BigFootShim.lua` | Lightweight replacements for BigFoot library calls (`BLibrary`, `BigFoot_DelayCall`) |
+| `BigFootShim.lua` | Lightweight replacements for BigFoot library calls (`BLibrary`, `BigFoot_DelayCall`) plus the WoW Forever shims that restore removed Classic globals (`GetItemInfo`, `GetContainerItemInfo`, `GetContainerNumSlots`, `GetMerchantItemInfo`, ...) |
 | `SellerHelperFrame.xml` | UI frame definitions (merchant panel, item lists, tabs) |
 | `SellerHelper.lua` | Core sell-assistant logic, bag scanning, auto-sell, not-sell list |
 | `AutoRecharge.lua` | Auto-buy / recharge module |

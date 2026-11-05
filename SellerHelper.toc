@@ -1,4 +1,4 @@
-﻿## Interface: 11508, 11509
+﻿## Interface: 16001
 ## Title: SellerHelper
 ## Title-zhCN: 售卖助手
 ## Title-zhTW: 售賣助手
@@ -6,7 +6,7 @@
 ## Notes-zhCN: |cff00ff00SellerHelper|r|n|cffbc8f8f让你方便的出售物品，并可以设置自动要出售的物品。|r
 ## Notes-zhTW: |cff00ff00SellerHelper|r|n|cffbc8f8f讓你方便的出售物品，並可以設置自動要出售的物品。|r
 ## Author: BigFoot (standalone extraction)
-## Version: 1.0.0-standalone
+## Version: 1.0.1-forever
 ## SavedVariables: SellerHelperSV
 ## SavedVariablesPerCharacter: AutoRechargeSetting, AR_ItemInfo, SellerHelper_AutoSellList, SellerHelper_NotSellList
 ## X-Category: Inventory
